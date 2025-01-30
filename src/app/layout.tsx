@@ -4,7 +4,6 @@ import MuiXLicense from '@/configs/MuiXLicense';
 
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import { ThemeProvider } from '@mui/material/styles';
-import QueryProvider from '@/components/QueryProvider';
 import fonts from '@/configs/fonts';
 import theme from '@/configs/theme';
 

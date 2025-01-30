@@ -21,6 +21,7 @@ export default function useGetSessions(baseURL: string, auth: string) {
                 .then((client) => client.sessions_list({ limit: 50000, type: 'play' }))
                 .then((res) => {
                     const data = res.data;
+                    /* eslint-disable  @typescript-eslint/no-explicit-any */
                     data.sessions = data.sessions.map((session: any) => {
                         session.mac_address = parseMACfromQuery(session.query_string);
                         return session;

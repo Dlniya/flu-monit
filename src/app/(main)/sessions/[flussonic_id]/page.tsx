@@ -2,8 +2,13 @@ import { FluServers } from '@/data/flu-servers';
 import Sessions from '@/components/sessions/Sessions';
 import QueryProvider from '@/components/QueryProvider';
 
-export default function FluSessionsPage({ params }: { params: { flussonic_id: string } }) {
-    const server = FluServers.find((server) => server.id === params.flussonic_id);
+type Props = {
+    params: Promise<{ flussonic_id: string }>;
+};
+
+export default async function FluSessionsPage({ params }: Props) {
+    const flussonic_id = (await params).flussonic_id;
+    const server = FluServers.find((server) => server.id === flussonic_id);
 
     if (!server) {
         return <div>Server not found</div>;
